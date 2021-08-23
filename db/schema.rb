@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2021_08_23_131938) do
     t.string "sub"
     t.string "name"
     t.string "description"
-    t.integer "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

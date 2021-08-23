@@ -17,6 +17,14 @@ class CryptosController < SecuredController
     render json: crypto, status: :created
   end
 
+  def update
+    crypto = Crypto.find(params[:id])
+    crypto.update!(crypto_params)
+    render json: crypto, status: :ok
+  rescue ActiveRecord::RecordNotFound
+    head :not_found
+  end
+
   def destroy
     crypto = Crypto.find(params[:id])
     crypto.delete
@@ -26,6 +34,6 @@ class CryptosController < SecuredController
   private
 
   def crypto_params
-    params.permit(:name, :description, :amount, :sub)
+    params.permit(:name, :description, :sub)
   end
 end
