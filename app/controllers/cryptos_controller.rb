@@ -34,6 +34,6 @@ class CryptosController < SecuredController
   private
 
   def crypto_params
-    params.permit(:name, :description, :sub)
+    params.permit(:amount, :sub, :coin_id)
   end
 end

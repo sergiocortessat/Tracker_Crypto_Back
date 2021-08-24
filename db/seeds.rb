@@ -3,5 +3,11 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+  coins = Coin.create([
+      {name: 'Bitcoin', description: 'First crypto ever created'},
+      { name: 'Etherum', description: 'First smart contract blockhain' },
+      { name: 'Cardano (ADA)', description: 'First.........' },
+      { name: 'Uniswap', description: '..................' },
+    {name: 'XRP',description: '.........................' },
+   { name: 'Polkadot' ,description: '.......................' }
+  ])
