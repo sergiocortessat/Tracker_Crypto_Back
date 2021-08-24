@@ -7,7 +7,7 @@ class MeasurementsController < ApplicationController
 
   def show
     @measurement = Measurement.find(params[:id])
-    render json: @measurement
+    render json: @measurement, include: [:goal]
   end
 
   def create
