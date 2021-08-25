@@ -24,12 +24,12 @@ User.create([
 
 #
 coins = Coin.create([
-  {name: 'Bitcoin', description: 'First crypto ever created'},
-  { name: 'Etherum', description: 'First smart contract blockhain' },
-  { name: 'Cardano (ADA)', description: 'First.........' },
-  { name: 'Uniswap', description: '..................' },
-  {name: 'XRP',description: '.........................' },
-  { name: 'Polkadot' ,description: '.......................' }
+  {name: 'Bitcoin', description: "Bitcoin, often described as a cryptocurrency, a virtual currency or a digital currency - is a type of money that is completely virtual. It's like an online version of cash. You can use it to buy products and services, but not many shops accept Bitcoin yet and some countries have banned it altogether."},
+  { name: 'Etherum', description: "Ethereum is a blockchain platform with its own cryptocurrency, called Ether (ETH) or Ethereum, and its own programming language, called Solidity. As a blockchain network, Ethereum is a decentralized public ledger for verifying and recording transactions. ... Ethereum users pay fees to use dApps." },
+  { name: 'Cardano (ADA)', description: 'Cardano is a blockchain platform that aims to be a decentralized application (DApp) development platform with a multi-asset ledger and verifiable smart contracts. 4. Cardano is being built in five stages: foundation, decentralization, smart contracts, scaling, and governance.' },
+  { name: 'Uniswap', description: "Overview. Uniswap is a decentralized finance protocol that is used to exchange cryptocurrencies and tokens; it is provided on blockchain networks that are decentralized, running open-source software, as opposed to any centralized intermediary." },
+  {name: 'XRP',description: "Ripple (XRP) is a peer-to-peer powered cryptocurrency designed to work seamlessly with the Internet to allow a fast, direct and secure way to send payments on the web. ... It is built upon a distributed open Internet protocol, consensus ledger and its own currency called XRP." },
+  { name: 'Polkadot' ,description: "Polkadot is a software that seeks to incentivize a global network of computers to operate a blockchain on top of which users can launch and operate their own blockchains. ... However, Polkadot, launched in 2020, is among the newest, and it introduces a number of novel technical features toward its ambitious goal." }
   ])
   
   Goal.create([{user_id: 1, coin_id: 1, goal: 1}]) 
