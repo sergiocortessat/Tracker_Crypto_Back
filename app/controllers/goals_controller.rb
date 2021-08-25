@@ -2,12 +2,12 @@ class GoalsController < SecuredController
   skip_before_action :authorize_request, only: %i[index show]
   def index
     goals = Goal.all
-    render json: goals
+    render json: goals, include: [:measurements]
   end
 
   def show
     goal = Goal.find(params[:id])
-    render json: goal, include: [:user]
+    render json: goal, include: [:measurements]
   rescue ActiveRecord::RecordNotFound
     head :not_found
   end
@@ -34,6 +34,6 @@ class GoalsController < SecuredController
   private
 
   def goal_params
-    params.permit(:goal, :sub, :crypto_name)
+    params.permit(:goal, :user_id, :coin_id)
   end
 end

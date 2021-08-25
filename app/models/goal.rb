@@ -1,4 +1,5 @@
 class Goal < ApplicationRecord
-  belongs_to :user, foreign_key: 'sub', primary_key: 'sub', optional: true
-  has_many :measurements, foreign_key: 'crypto_name', primary_key: 'crypto_name'
+  belongs_to :user
+  belongs_to :coin
+  has_many :measurements, dependent: :destroy
 end

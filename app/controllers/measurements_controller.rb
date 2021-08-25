@@ -38,6 +38,6 @@ class MeasurementsController < ApplicationController
   private
 
   def measurement_params
-    params.permit(:units, :crypto_name)
+    params.permit(:unit, :user_id, :goal_id)
   end
 end

@@ -3,7 +3,7 @@ class UsersController < SecuredController
 
   def index
     users = User.all
-    render json: users
+    render json: users, include: { coins: { include: { goals: { include: :measurements } } } }
   end
 
   def show
