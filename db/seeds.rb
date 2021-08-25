@@ -33,3 +33,4 @@ coins = Coin.create([
   ])
   
   Goal.create([{user_id: 1, coin_id: 1, goal: 1}]) 
+  Measurement.create([{user_id: 1, goal_id: 1, unit: 0.2}])

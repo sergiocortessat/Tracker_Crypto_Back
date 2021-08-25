@@ -17,7 +17,9 @@ RSpec.describe '/coins', type: :request do
   # Coin. As you add validations to Coin, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    user = User.create(sub: 'google-oauth2|108940937413760665889', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
+      picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+{ name: 'Bitcoin', description: 'Bitcoin buy' }
   end
 
   let(:invalid_attributes) do
