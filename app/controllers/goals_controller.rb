@@ -34,6 +34,6 @@ class GoalsController < SecuredController
   private
 
   def goal_params
-    params.permit(:goal, :user_id, :coin_id)
+    params.permit(:goal, :user_id, :coin_id, :sub)
   end
 end
