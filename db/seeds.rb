@@ -3,24 +3,24 @@
 #
 # Examples:
 
-User.create([
-  {
-    sub: "1",
-    email: "ryelbanfield@gmail.com",
-    name: "Ryel Banfield",
-    given_name: "Ryel",
-    family_name: "Banfield",
-    picture: "https://picture.jpg"
-  },
-  {
-    sub: "2",
-    email: "johndoe@gmail.com",
-    name: "John Doe",
-    given_name: "John",
-    family_name: "Doe",
-    picture: "https://picture.jpg"
-  }
-])
+# User.create([
+#   {
+#     sub: "1",
+#     email: "ryelbanfield@gmail.com",
+#     name: "Ryel Banfield",
+#     given_name: "Ryel",
+#     family_name: "Banfield",
+#     picture: "https://picture.jpg"
+#   },
+#   {
+#     sub: "2",
+#     email: "johndoe@gmail.com",
+#     name: "John Doe",
+#     given_name: "John",
+#     family_name: "Doe",
+#     picture: "https://picture.jpg"
+#   }
+# ])
 
 #
 coins = Coin.create([
@@ -32,5 +32,5 @@ coins = Coin.create([
   { name: 'Polkadot' ,description: "Polkadot is a software that seeks to incentivize a global network of computers to operate a blockchain on top of which users can launch and operate their own blockchains. ... However, Polkadot, launched in 2020, is among the newest, and it introduces a number of novel technical features toward its ambitious goal." }
   ])
   
-  Goal.create([{sub: 1, coin_id: 1, goal: 1}]) 
-  Measurement.create([{user_id: 1, goal_id: 1, unit: 0.2}])
+  # Goal.create([{sub: 1, coin_id: 1, goal: 1}]) 
+  # Measurement.create([{user_id: 1, goal_id: 1, unit: 0.2}])
