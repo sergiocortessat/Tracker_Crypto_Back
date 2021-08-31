@@ -17,9 +17,9 @@ RSpec.describe '/goals', type: :request do
   # Goal. As you add validations to Goal, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    User.create(sub: 'google-oauth2|108940937413760665889', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
+    user = User.create(sub: 'google-oauth2|108940937413760665889', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
                 picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
-    { user_id: 1, coin_id: 1, goal: 1 }
+    { sub: user.sub, coin_id: 1, goal: 1 }
   end
 
   let(:invalid_attributes) do
@@ -33,7 +33,7 @@ RSpec.describe '/goals', type: :request do
   let(:valid_headers) do
     {
       'Content-Type': 'application/json',
-      authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtBWG50ekZ6QWlOM2RZek9aOU1xcSJ9.eyJpc3MiOiJodHRwczovL2Rldi03cGhjY2staC51cy5hdXRoMC5jb20vIiwic3ViIjoic04zaHBvamQ1VnJIRUc3VmxhS2drWVRKYzg0T0JXd1ZAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vdHJhY2tlci1hcGkvIiwiaWF0IjoxNjI5ODg0MDY5LCJleHAiOjE2Mjk5NzA0NjksImF6cCI6InNOM2hwb2pkNVZySEVHN1ZsYUtna1lUSmM4NE9CV3dWIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.w5N1vf3tXb61HYabZN12gnzzIeERmoYXdAII_RrSeXXNZ6SV4qSTS3Q8dkPJQotyVdIy77AxBw4__lS0OQwzRnx07fO20Rqq65MDXC8eh2-IDqaUpjQAZ9Qyr2leSqi2kl_lEg7B6Y-RdBsVn6ubPYOHeQVYD71icuFSMdQT0hBGkowuyT0QWm-kyJ7mUfhvQdVmnHpVQPrMkBE8wAGzO70uyX3wVI545MqyVWjD7FnT3XV2JYRpjomGIUPxmN7L7n6iBuvdCaMR3SsFxbdVaMjKLB1UlR3PCn0rUO0MeD5Da1KTT0OepiEKUtW_JhywuTwul2LZsgtB43zWPIxWMg'
+      authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtBWG50ekZ6QWlOM2RZek9aOU1xcSJ9.eyJpc3MiOiJodHRwczovL2Rldi03cGhjY2staC51cy5hdXRoMC5jb20vIiwic3ViIjoic04zaHBvamQ1VnJIRUc3VmxhS2drWVRKYzg0T0JXd1ZAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vdHJhY2tlci1hcGkvIiwiaWF0IjoxNjMwNDI1MTE2LCJleHAiOjE2MzA1MTE1MTYsImF6cCI6InNOM2hwb2pkNVZySEVHN1ZsYUtna1lUSmM4NE9CV3dWIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.KDTDgKJ3-v9TTZtAEl-ARyv4Sc7qWa_eugQFz_KWgICNb0Xi6kHtdZ_AJOJJ4sQbPqKXitEhuwDlPzJeDTgI8LEsMVfLIV2aULmA_gW2E-CeVCZEwGw-BIXNxXWfJfXaxumhDIln98Ftx9BwRaMgthpWH8jvJ1aX5z_XNFQGHe0upD5QFRxmH_fTSMSYpauHTlZowVsCX18iKPzkxff_rg9yC68TesIJT3dobMwBgIDmQJVIHd5WHAAkScYnwQZXvmKwr8EDhAvKiydL8NkCc_jfLtWgIQvEB83Za64ZHk_h7ZH6EOBmk-vrGdJXlL2qClwUI761PXk2dt2tt8xFGQ'
     }
   end
 
@@ -52,7 +52,6 @@ RSpec.describe '/goals', type: :request do
       expect(response).to be_successful
     end
   end
-
 
   describe 'PATCH /update' do
     context 'with valid parameters' do
@@ -85,15 +84,6 @@ RSpec.describe '/goals', type: :request do
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json')
       end
-    end
-  end
-
-  describe 'DELETE /destroy' do
-    it 'destroys the requested goal' do
-      goal = Goal.create! valid_attributes
-      expect do
-        delete goal_url(goal), headers: valid_headers, as: :json
-      end.to change(Goal, :count).by(-1)
     end
   end
 end
