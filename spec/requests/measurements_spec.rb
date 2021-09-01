@@ -17,16 +17,19 @@ RSpec.describe '/measurements', type: :request do
   # Measurement. As you add validations to Measurement, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    # user = User.create(sub: 'google-oauth2|108940937413760665889', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
-    #             picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
-    # coin = Coin.create(name: 'test', description: 'test1', picture: 'test')
-    # goal = Goal.create(sub: user.sub, coin_id: coin.id, goal: 1)
-    # { goal_id: goal.id, user_id: 1, unit: 1 }
-  skip('Add')
+    user = User.create(sub: '1', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
+                       picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+    coin = Coin.create(name: 'test', description: 'test1', picture: 'test')
+    goal = Goal.create(sub: user.sub, coin_id: coin.id, goal: 1)
+    { goal_id: goal.id, user_id: user.id, unit: 1 }
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    user = User.create(sub: '1', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
+                       picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+    coin = Coin.create(name: 'test', description: 'test1', picture: 'test')
+    goal = Goal.create(sub: user.sub, coin_id: coin.id, goal: 1)
+    { goal_id: goal.id, user_id: 2, unit: 1 }
   end
 
   # This should return the minimal set of values that should be in the headers
@@ -93,7 +96,11 @@ RSpec.describe '/measurements', type: :request do
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        user = User.create(sub: '1', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
+                           picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+        coin = Coin.create(name: 'test', description: 'test1', picture: 'test')
+        goal = Goal.create(sub: user.sub, coin_id: coin.id, goal: 1)
+        { goal_id: goal.id, user_id: user.id, unit: 1 }
       end
 
       it 'updates the requested measurement' do
@@ -101,7 +108,11 @@ RSpec.describe '/measurements', type: :request do
         patch measurement_url(measurement),
               params: { measurement: new_attributes }, headers: valid_headers, as: :json
         measurement.reload
-        skip('Add assertions for updated state')
+        user = User.create(sub: '1', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
+                           picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+        coin = Coin.create(name: 'test', description: 'test1', picture: 'test')
+        goal = Goal.create(sub: user.sub, coin_id: coin.id, goal: 1)
+        { goal_id: goal.id, user_id: user.id, unit: 1 }
       end
 
       it 'renders a JSON response with the measurement' do

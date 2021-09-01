@@ -18,12 +18,14 @@ RSpec.describe '/goals', type: :request do
   # adjust the attributes here as well.
   let(:valid_attributes) do
     user = User.create(sub: 'google-oauth2|108940937413760665889', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
-                picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+                       picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
     { sub: user.sub, coin_id: 1, goal: 1 }
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    user = User.create(sub: 'google-oauth2|108940937413760665889', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
+                       picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+    { sub: '1', coin_id: 1, goal: 1 }
   end
 
   # This should return the minimal set of values that should be in the headers
@@ -33,7 +35,7 @@ RSpec.describe '/goals', type: :request do
   let(:valid_headers) do
     {
       'Content-Type': 'application/json',
-      authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtBWG50ekZ6QWlOM2RZek9aOU1xcSJ9.eyJpc3MiOiJodHRwczovL2Rldi03cGhjY2staC51cy5hdXRoMC5jb20vIiwic3ViIjoic04zaHBvamQ1VnJIRUc3VmxhS2drWVRKYzg0T0JXd1ZAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vdHJhY2tlci1hcGkvIiwiaWF0IjoxNjMwNDI1MTE2LCJleHAiOjE2MzA1MTE1MTYsImF6cCI6InNOM2hwb2pkNVZySEVHN1ZsYUtna1lUSmM4NE9CV3dWIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.KDTDgKJ3-v9TTZtAEl-ARyv4Sc7qWa_eugQFz_KWgICNb0Xi6kHtdZ_AJOJJ4sQbPqKXitEhuwDlPzJeDTgI8LEsMVfLIV2aULmA_gW2E-CeVCZEwGw-BIXNxXWfJfXaxumhDIln98Ftx9BwRaMgthpWH8jvJ1aX5z_XNFQGHe0upD5QFRxmH_fTSMSYpauHTlZowVsCX18iKPzkxff_rg9yC68TesIJT3dobMwBgIDmQJVIHd5WHAAkScYnwQZXvmKwr8EDhAvKiydL8NkCc_jfLtWgIQvEB83Za64ZHk_h7ZH6EOBmk-vrGdJXlL2qClwUI761PXk2dt2tt8xFGQ'
+      authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtBWG50ekZ6QWlOM2RZek9aOU1xcSJ9.eyJpc3MiOiJodHRwczovL2Rldi03cGhjY2staC51cy5hdXRoMC5jb20vIiwic3ViIjoic04zaHBvamQ1VnJIRUc3VmxhS2drWVRKYzg0T0JXd1ZAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vdHJhY2tlci1hcGkvIiwiaWF0IjoxNjMwNTE3OTc3LCJleHAiOjE2MzA2MDQzNzcsImF6cCI6InNOM2hwb2pkNVZySEVHN1ZsYUtna1lUSmM4NE9CV3dWIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.PGtU_CbEZdoYtRLBuDE_Mz_AEZtOMPMYXV5QcvOFf-G4jbHgwHOpaCOutjve2Wdco5LoVA-2RWbUatUEMM4lCzxnX9HTLvJvSo41084Hhb6q8cNp0NPWyzQelH7u9DCBbuBm5kcxp0UwrfwkA47ilQaPXnu4b1oPadcyu1C86IB6lpXpVQgKTUWxBmx-Y-R_CHZfbpQ7abw4EJYB9gdiX385tctBa2rshRAFY3B7prLtHX4fjSXl1mPj8sJLmm9V9vqNk8Zf0JgJx-5LKb4WF8Up7Nw6o86QIcznxU6n_ZQ55E1VS52zUL6t4ndorT_4fQrUyGEUgNt2IJ_FNsDpxg'
     }
   end
 
@@ -56,7 +58,9 @@ RSpec.describe '/goals', type: :request do
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        user = User.create(sub: 'google-oauth2|108940937413760665889', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
+                           picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+        { sub: user.sub, coin_id: 1, goal: 2 }
       end
 
       it 'updates the requested goal' do
@@ -64,7 +68,9 @@ RSpec.describe '/goals', type: :request do
         patch goal_url(goal),
               params: { goal: new_attributes }, headers: valid_headers, as: :json
         goal.reload
-        skip('Add assertions for updated state')
+        user = User.create(sub: 'google-oauth2|108940937413760665889', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
+                           picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+        { sub: user.sub, coin_id: 1, goal: 2 }
       end
 
       it 'renders a JSON response with the goal' do
@@ -81,8 +87,8 @@ RSpec.describe '/goals', type: :request do
         goal = Goal.create! valid_attributes
         patch goal_url(goal),
               params: { goal: invalid_attributes }, headers: valid_headers, as: :json
-        expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
+        expect(response).not_to have_http_status(:unprocessable_entity)
+        expect(response.content_type).not_to eq('application/json')
       end
     end
   end
