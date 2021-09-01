@@ -1,5 +1,9 @@
 # Crypto tracker API
 
+<p align="center">
+  <img height="auto" src="customlogo.png">
+</p>
+
 ## Table of Contents
   <br />
 
@@ -68,8 +72,8 @@ Terminal or similar to execute the program.
 ## Clone project
 
 - To get a local copy up and running follow these simple example steps.
-- Clone this repository with git clone ```https://github.com/sergiocortessat/Rails-Tweet-Redesegin``` using your terminal or command line.
-- Change to the project directory by entering: ```cd Rails-Tweet-Redesegin``` in the terminal.
+- Clone this repository with git clone ```https://github.com/sergiocortessat/Tracker_Crypto_Back/tree/feature``` using your terminal or command line.
+- Change to the project directory by entering: ```cd Tracker_Crypto_Back``` in the terminal.
 
 ## How to use the Private-Event app
 1. run the command ```bundle install```   This will install the required dependencies
@@ -80,9 +84,9 @@ Terminal or similar to execute the program.
 
 ## Command line steps
 ```
-- $ git clone `$ git clone https://github.com/sergiocortessat/Rails-Tweet-Redesegin/pull/2`
+- $ git clone `$ https://github.com/sergiocortessat/Tracker_Crypto_Back/tree/feature`
 - $ git checkout develop
-- $ cd Rails-Tweet-Redesegin`
+- $ cd Tracker_Crypto_Back
 - $ bundle 
 - $ rails webpacker:install 
 - $ rails db:create
@@ -110,12 +114,12 @@ The testing files are included in spec folders.
 ```
 - $ gem install rspec
 - $ rspec spec/*
-- $ 29 examples, 0 failures
+- $ 47 examples, 0 failures
 
 ```
 
 <p align="center">
-  <img height="auto" src="app/assets/images/rspec.png">
+  <img height="auto" src="test.png">
 </p>
 
 ## Authors
@@ -131,7 +135,6 @@ The testing files are included in spec folders.
 ## Acknowledgements
 
 * [Microverse](https://www.microverse.org/)
-* Design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella)
 
 
 ## 📝 License
