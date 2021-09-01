@@ -18,7 +18,8 @@ RSpec.describe '/measurements', type: :request do
   # adjust the attributes here as well.
   let(:valid_attributes) do
     user = User.create(sub: '1', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
-                       picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+                       picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg',
+                       email: 'test3@gmail.com')
     coin = Coin.create(name: 'test', description: 'test1', picture: 'test')
     goal = Goal.create(sub: user.sub, coin_id: coin.id, goal: 1)
     { goal_id: goal.id, user_id: user.id, unit: 1 }
@@ -26,7 +27,8 @@ RSpec.describe '/measurements', type: :request do
 
   let(:invalid_attributes) do
     user = User.create(sub: '1', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
-                       picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+                       picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg',
+                       email: 'test3@gmail.com')
     coin = Coin.create(name: 'test', description: 'test1', picture: 'test')
     goal = Goal.create(sub: user.sub, coin_id: coin.id, goal: 1)
     { goal_id: goal.id, user_id: 2, unit: 1 }
@@ -39,7 +41,14 @@ RSpec.describe '/measurements', type: :request do
   let(:valid_headers) do
     {
       'Content-Type': 'application/json',
-      authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtBWG50ekZ6QWlOM2RZek9aOU1xcSJ9.eyJpc3MiOiJodHRwczovL2Rldi03cGhjY2staC51cy5hdXRoMC5jb20vIiwic3ViIjoic04zaHBvamQ1VnJIRUc3VmxhS2drWVRKYzg0T0JXd1ZAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vdHJhY2tlci1hcGkvIiwiaWF0IjoxNjI5ODg0MDY5LCJleHAiOjE2Mjk5NzA0NjksImF6cCI6InNOM2hwb2pkNVZySEVHN1ZsYUtna1lUSmM4NE9CV3dWIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.w5N1vf3tXb61HYabZN12gnzzIeERmoYXdAII_RrSeXXNZ6SV4qSTS3Q8dkPJQotyVdIy77AxBw4__lS0OQwzRnx07fO20Rqq65MDXC8eh2-IDqaUpjQAZ9Qyr2leSqi2kl_lEg7B6Y-RdBsVn6ubPYOHeQVYD71icuFSMdQT0hBGkowuyT0QWm-kyJ7mUfhvQdVmnHpVQPrMkBE8wAGzO70uyX3wVI545MqyVWjD7FnT3XV2JYRpjomGIUPxmN7L7n6iBuvdCaMR3SsFxbdVaMjKLB1UlR3PCn0rUO0MeD5Da1KTT0OepiEKUtW_JhywuTwul2LZsgtB43zWPIxWMg'
+      authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtBWG50ekZ6QWlOM2RZek9aOU1xcSJ9
+      .eyJpc3MiOiJodHRwczovL2Rldi03cGhjY2
+      staC51cy5hdXRoMC5jb20vIiwic3ViIjoic04zaHBvamQ1VnJIRUc3VmxhS2drWVRKYzg0T0JXd1ZAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vd
+      HJhY2tlci1hcGkvIiwiaWF0IjoxNjI5ODg0MDY5LCJleHAiOjE2Mjk5NzA0NjksImF6cCI6InNOM2hwb2pkNVZySEVHN1ZsYUtna1lUSmM4NE9
+      CV3dWIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.w5N1vf3tXb61HYabZN12gnzzIeERmoYXdAII_RrSeXXNZ6SV4qSTS3Q8dkPJQotyVdI
+      y77AxBw4__lS0OQwzRnx07fO20Rqq65MDXC8eh2-IDqaUpjQAZ9Qyr2leSqi2kl_lEg7B6Y-RdBsVn6ubPYOHeQVYD71icuFSMdQT0hBGkowuy
+      T0QWm-kyJ7mUfhvQdVmnHpVQPrMkBE8wAGzO70uyX3wVI545MqyVWjD7FnT3XV2JYRpjomGIUPxmN7L7n6iBuvdCaMR3SsFxbdVaMjKLB1UlR
+      3PCn0rUO0MeD5Da1KTT0OepiEKUtW_JhywuTwul2LZsgtB43zWPIxWMg'
     }
   end
 
@@ -97,7 +106,8 @@ RSpec.describe '/measurements', type: :request do
     context 'with valid parameters' do
       let(:new_attributes) do
         user = User.create(sub: '1', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
-                           picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+                           picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg',
+                           email: 'test3@gmail.com')
         coin = Coin.create(name: 'test', description: 'test1', picture: 'test')
         goal = Goal.create(sub: user.sub, coin_id: coin.id, goal: 1)
         { goal_id: goal.id, user_id: user.id, unit: 1 }
@@ -109,7 +119,8 @@ RSpec.describe '/measurements', type: :request do
               params: { measurement: new_attributes }, headers: valid_headers, as: :json
         measurement.reload
         user = User.create(sub: '1', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
-                           picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+                           picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg',
+                           email: 'test3@gmail.com')
         coin = Coin.create(name: 'test', description: 'test1', picture: 'test')
         goal = Goal.create(sub: user.sub, coin_id: coin.id, goal: 1)
         { goal_id: goal.id, user_id: user.id, unit: 1 }

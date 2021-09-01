@@ -18,13 +18,15 @@ RSpec.describe '/goals', type: :request do
   # adjust the attributes here as well.
   let(:valid_attributes) do
     user = User.create(sub: 'google-oauth2|108940937413760665889', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
-                       picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+                       picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg',
+                       email: 'test3@gmail.com')
     { sub: user.sub, coin_id: 1, goal: 1 }
   end
 
   let(:invalid_attributes) do
     User.create(sub: 'google-oauth2|108940937413760665889', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
-                       picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+                picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg',
+                email: 'test3@gmail.com')
     { sub: '1', coin_id: 1, goal: 1 }
   end
 
@@ -35,7 +37,16 @@ RSpec.describe '/goals', type: :request do
   let(:valid_headers) do
     {
       'Content-Type': 'application/json',
-      authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtBWG50ekZ6QWlOM2RZek9aOU1xcSJ9.eyJpc3MiOiJodHRwczovL2Rldi03cGhjY2staC51cy5hdXRoMC5jb20vIiwic3ViIjoic04zaHBvamQ1VnJIRUc3VmxhS2drWVRKYzg0T0JXd1ZAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vdHJhY2tlci1hcGkvIiwiaWF0IjoxNjMwNTE3OTc3LCJleHAiOjE2MzA2MDQzNzcsImF6cCI6InNOM2hwb2pkNVZySEVHN1ZsYUtna1lUSmM4NE9CV3dWIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.PGtU_CbEZdoYtRLBuDE_Mz_AEZtOMPMYXV5QcvOFf-G4jbHgwHOpaCOutjve2Wdco5LoVA-2RWbUatUEMM4lCzxnX9HTLvJvSo41084Hhb6q8cNp0NPWyzQelH7u9DCBbuBm5kcxp0UwrfwkA47ilQaPXnu4b1oPadcyu1C86IB6lpXpVQgKTUWxBmx-Y-R_CHZfbpQ7abw4EJYB9gdiX385tctBa2rshRAFY3B7prLtHX4fjSXl1mPj8sJLmm9V9vqNk8Zf0JgJx-5LKb4WF8Up7Nw6o86QIcznxU6n_ZQ55E1VS52zUL6t4ndorT_4fQrUyGEUgNt2IJ_FNsDpxg'
+      authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtBWG50ekZ6QWlOM2RZek9aOU1xcSJ9.eyJpc3MiOiJodHRwczovL2Rldi03cGhjY2
+      staC51cy5hdXRoMC5jb20vIiwic3ViIjoic04zaHBvamQ1VnJIRUc3VmxhS2drWVRKYzg0T0JXd1ZAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vdHJhY2tlci1hcGkvIiwiaWF0
+      IjoxNjMwNTE3OTc3LCJ
+      leHAiOjE2MzA2MDQzNzcsImF6cCI6InNOM2hwb2pkNVZySEVHN1ZsYUtna1lUSmM4NE9CV3dWIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.PGtU_CbEZdoYtRLBuDE_
+      Mz_AEZtOMPMYXV5QcvOF
+      f-G4jbHgwHOpaCOutjve2Wdco5LoVA-2RWbUatUEMM4lCzxnX9HTLvJvSo41084Hhb6q8cNp0NPWyzQelH7u9DCBbuBm5kcxp0UwrfwkA47ilQaPXnu4b1oPadcyu1C86IB6lp
+      XpVQgKTUW
+      xBmx-Y-R_CHZfbpQ7abw4EJYB9gdiX385tctBa2rshRAFY3B7prLtHX4fjSXl1mPj8sJLmm9V9vqNk8Zf0JgJx-5LKb4WF8Up7Nw6o86QIcznxU6n_ZQ55E1VS52zUL6t4ndor
+      T_4fQrUyGEUgNt2
+      IJ_FNsDpxg'
     }
   end
 
@@ -59,7 +70,8 @@ RSpec.describe '/goals', type: :request do
     context 'with valid parameters' do
       let(:new_attributes) do
         user = User.create(sub: 'google-oauth2|108940937413760665889', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
-                           picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+                           picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg',
+                           email: 'test3@gmail.com')
         { sub: user.sub, coin_id: 1, goal: 2 }
       end
 
@@ -69,7 +81,8 @@ RSpec.describe '/goals', type: :request do
               params: { goal: new_attributes }, headers: valid_headers, as: :json
         goal.reload
         user = User.create(sub: 'google-oauth2|108940937413760665889', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
-                           picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', email: 'test3@gmail.com')
+                           picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg',
+                           email: 'test3@gmail.com')
         { sub: user.sub, coin_id: 1, goal: 2 }
       end
 

@@ -3,5 +3,5 @@ class Goal < ApplicationRecord
   belongs_to :coin
   has_many :measurements, dependent: :destroy
   # validates :sub, uniqueness: true
-  #validate that coind_id and sub are unique
+  # validate that coind_id and sub are unique
 end
