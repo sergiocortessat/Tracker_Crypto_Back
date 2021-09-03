@@ -3,12 +3,12 @@ class UsersController < SecuredController
 
   def index
     users = User.all
-    render json: users
+    render json: users, include: { coins: { include: { goals: { include: :measurements } } } }
   end
 
   def show
-    user = User.find(params[:id])
-    render json: user
+    user = User.find_by(sub: params[:id])
+    render json: user, include: { coins: { include: { goals: { include: :measurements } } } }
   rescue ActiveRecord::RecordNotFound
     head :not_found
   end

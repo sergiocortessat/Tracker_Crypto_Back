@@ -1,4 +1,8 @@
-# Life Financial
+# Crypto tracker API
+
+<p align="center">
+  <img height="auto" src="customlogo.png">
+</p>
 
 ## Table of Contents
   <br />
@@ -16,7 +20,6 @@
 
 ![Ruby](https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white)
 ![Rails](https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 ![Postgresql](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
 <br />
@@ -25,45 +28,32 @@
 
 * [RUBY]
 * [RAILS]
-* [DEVISE]
+* [Auth0]
 * [RSPEC&CAPIBARA]
-* [BOOTSTRAP]
-* [CLOUDINARY]
 * [POSTGRESQL]
 
 
 <!-- ABOUT THE PROJECT   -->
 ## About The Project
 
-The Life financial project sets up an that allows you to share your opinions related to financial, stock, crypto, or life wealth hacks that you have used in the past. As well we welcome all sort of insights, opinions, Forecast or interpretations of current stocks, crypto, and financial market
+The crypto tracker project helps the users to set personal individual goals on how much they wish to buy out of a certain crypto. Then the user can create
+a list of crypto currencies that they are interested in. The user can then set a unit amount for each crypto currency they have and compare their progress against the goals.
 
-## Screenshot Test
-## Log In
-<p align="center">
-  <img height="auto" src="app/assets/images/Screenshot3.png">
-</p>
+## API calls
 
-## Index page
+- https://scs-tracker-api.herokuapp.com/users : Show all users
+- https://scs-tracker-api.herokuapp.com/users/:id : Show a specific user
+- https://scs-tracker-api.herokuapp.com/goals : Show all goals
+- https://scs-tracker-api.herokuapp.com/goals/:id : Show a specific goals of the user
+- https://scs-tracker-api.herokuapp.com/coins : Show all cryptos
+- https://scs-tracker-api.herokuapp.com/measurement : Show all measurements
+- https://scs-tracker-api.herokuapp.com/measurement/:id : Show a specific measurement of the user
 
-<p align="center">
-  <img height="auto" src="app/assets/images/Screenshot9.png">
-</p>
-
-## User page
-<p align="center">
-  <img height="auto" src="app/assets/images/Screenshot10.png">
-</p>
-
-## Edit User
-<p align="center">
-  <img height="auto" src="app/assets/images/Screenshot6.png">
-</p>
 
 ## Live Demo
 
-- [Live Demo Link](https://still-taiga-45359.herokuapp.com/users/sign_in)
+- [Live Demo Link](https://scs-tracker-api.herokuapp.com/)
 
-- [Video](https://www.loom.com/share/4e6d18b212854d00bf9221ba3b7a9704)
 
 ## Contributing
 
@@ -82,8 +72,8 @@ Terminal or similar to execute the program.
 ## Clone project
 
 - To get a local copy up and running follow these simple example steps.
-- Clone this repository with git clone ```https://github.com/sergiocortessat/Rails-Tweet-Redesegin``` using your terminal or command line.
-- Change to the project directory by entering: ```cd Rails-Tweet-Redesegin``` in the terminal.
+- Clone this repository with git clone ```https://github.com/sergiocortessat/Tracker_Crypto_Back/tree/feature``` using your terminal or command line.
+- Change to the project directory by entering: ```cd Tracker_Crypto_Back``` in the terminal.
 
 ## How to use the Private-Event app
 1. run the command ```bundle install```   This will install the required dependencies
@@ -94,9 +84,9 @@ Terminal or similar to execute the program.
 
 ## Command line steps
 ```
-- $ git clone `$ git clone https://github.com/sergiocortessat/Rails-Tweet-Redesegin/pull/2`
+- $ git clone `$ https://github.com/sergiocortessat/Tracker_Crypto_Back/tree/feature`
 - $ git checkout develop
-- $ cd Rails-Tweet-Redesegin`
+- $ cd Tracker_Crypto_Back
 - $ bundle 
 - $ rails webpacker:install 
 - $ rails db:create
@@ -124,12 +114,12 @@ The testing files are included in spec folders.
 ```
 - $ gem install rspec
 - $ rspec spec/*
-- $ 29 examples, 0 failures
+- $ 47 examples, 0 failures
 
 ```
 
 <p align="center">
-  <img height="auto" src="app/assets/images/rspec.png">
+  <img height="auto" src="test.png">
 </p>
 
 ## Authors
@@ -145,7 +135,6 @@ The testing files are included in spec folders.
 ## Acknowledgements
 
 * [Microverse](https://www.microverse.org/)
-* Design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella)
 
 
 ## 📝 License

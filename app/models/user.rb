@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  has_many :cryptos, foreign_key: 'sub', primary_key: 'sub'
-
-  validates_presence_of :sub, :email, :name, :given_name, :family_name, :picture
-  validates_uniqueness_of :sub, :email
+  has_many :goals, foreign_key: 'sub', primary_key: 'sub'
+  has_many :coins, through: :goals
+  validates :sub, :email, presence: true,
+                          uniqueness: { case_sensitive: false }
+  validates :name, presence: true
 end
