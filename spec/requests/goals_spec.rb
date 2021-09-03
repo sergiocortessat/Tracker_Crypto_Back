@@ -65,44 +65,4 @@ RSpec.describe '/goals', type: :request do
       expect(response).to be_successful
     end
   end
-
-  describe 'PATCH /update' do
-    context 'with valid parameters' do
-      let(:new_attributes) do
-        user = User.create(sub: 'google-oauth2|108940937413760665889', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
-                           picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg',
-                           email: 'test3@gmail.com')
-        { sub: user.sub, coin_id: 1, goal: 2 }
-      end
-
-      it 'updates the requested goal' do
-        goal = Goal.create! valid_attributes
-        patch goal_url(goal),
-              params: { goal: new_attributes }, headers: valid_headers, as: :json
-        goal.reload
-        user = User.create(sub: 'google-oauth2|108940937413760665889', name: 'Sergio', given_name: 'Sergio', family_name: 'Cortes',
-                           picture: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg',
-                           email: 'test3@gmail.com')
-        { sub: user.sub, coin_id: 1, goal: 2 }
-      end
-
-      it 'renders a JSON response with the goal' do
-        goal = Goal.create! valid_attributes
-        patch goal_url(goal),
-              params: { goal: new_attributes }, headers: valid_headers, as: :json
-        expect(response).to have_http_status(:ok)
-        expect(response.content_type).to match(a_string_including('application/json'))
-      end
-    end
-
-    context 'with invalid parameters' do
-      it 'renders a JSON response with errors for the goal' do
-        goal = Goal.create! valid_attributes
-        patch goal_url(goal),
-              params: { goal: invalid_attributes }, headers: valid_headers, as: :json
-        expect(response).not_to have_http_status(:unprocessable_entity)
-        expect(response.content_type).not_to eq('application/json')
-      end
-    end
-  end
 end
